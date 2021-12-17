@@ -54,6 +54,11 @@ The tasks for this challenge will build a simple user interface that will allow 
 ### Task 2
 
 1. Add the type to the [employee component](./src/app/employee/employee.component.ts). The [employee](./src/app/employee.ts) type may have the property directReports which is an array of other employee ids who report directly to this employee.
+
+***
+Which type needs to be added? The employee property is already of type employee, which has now been updated to have the compensation property
+***
+
 2. On the [employee component](./src/app/employee/employee.component.ts) add a new field that collects the employees reporting to this person, directly and indirectly & display the **total** number of these employees in the header of the card.
 
 ### Task 3
