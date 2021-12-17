@@ -3,6 +3,7 @@ import {Component, Input} from '@angular/core';
 
 import {EmployeeListComponent} from './employee-list.component';
 import {EmployeeService} from '../employee.service';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @Component({selector: 'app-employee', template: ''})
 class EmployeeComponent {
