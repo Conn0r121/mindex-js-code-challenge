@@ -28,6 +28,10 @@ describe('EmployeeListComponent', () => {
         GridListComponent,
         GridTileComponent
       ],
+      // adding imports to remove npm warnings for not including mat-grid-list during tests
+      imports: [
+        MatGridListModule
+      ],
       providers: [
         {provide: EmployeeService, useValue: employeeServiceSpy}
       ],

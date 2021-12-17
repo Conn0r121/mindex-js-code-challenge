@@ -36,6 +36,10 @@ describe('EmployeeComponent', () => {
         CardSubtitleComponent,
         CardContentComponent
       ],
+      // adding imports to remove npm warnings for not including mat-card during tests
+      imports: [
+        MatCardModule,
+      ],
     }).compileComponents();
   }));
 
