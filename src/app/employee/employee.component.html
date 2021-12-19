@@ -9,8 +9,8 @@
         <mat-card-header>
           <mat-card-title id="direct-reports-title">Direct Reports:</mat-card-title>
         </mat-card-header>
-      <mat-card-content *ngFor="let directReport of reports">
-        <h3>{{directReport.firstName}} {{directReport.lastName}}, {{directReport.position}}</h3>
+      <mat-card-content *ngFor="let directReport of getDirectReports()">
+        <mat-card>{{directReport.firstName}} {{directReport.lastName}}, {{directReport.position}}</mat-card>
       </mat-card-content>
       </mat-card>
     </div>

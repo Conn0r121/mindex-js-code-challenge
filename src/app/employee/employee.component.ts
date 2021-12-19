@@ -27,4 +27,8 @@ export class EmployeeComponent implements OnInit {
       });
     });
   }
+
+  getDirectReports(): Employee[] {
+    return this.reports.filter(reporter => this.employee.directReports.includes(reporter.id))
+  }
 }
