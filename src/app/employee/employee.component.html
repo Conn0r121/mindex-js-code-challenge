@@ -13,8 +13,8 @@
         <mat-card class="report-card">
           <span class="report-text">{{directReport.firstName}} {{directReport.lastName}}, {{directReport.position}}</span>
           <span>
-            <button mat-icon-button><mat-icon>edit</mat-icon></button>
-            <button mat-icon-button><mat-icon>delete</mat-icon></button>
+            <button mat-icon-button (click)="updateDirectReport(directReport)"><mat-icon>edit</mat-icon></button>
+            <button mat-icon-button (click)="deleteDirectReport(directReport)"><mat-icon>delete</mat-icon></button>
           </span>
         </mat-card>
       </mat-card-content>

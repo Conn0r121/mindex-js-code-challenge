@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 
 import {Employee} from '../employee';
 import {EmployeeService} from '../employee.service';
@@ -10,6 +10,9 @@ import {EmployeeService} from '../employee.service';
 })
 export class EmployeeComponent implements OnInit {
   @Input() employee: Employee;
+  @Output() updateEmployee = new EventEmitter<Employee>();
+  @Output() deleteEmployee = new EventEmitter<Employee>();
+
   reports: Employee[] = [];
 
   constructor(private employeeService: EmployeeService) {
@@ -30,5 +33,13 @@ export class EmployeeComponent implements OnInit {
 
   getDirectReports(): Employee[] {
     return this.reports.filter(reporter => this.employee.directReports.includes(reporter.id))
+  }
+
+  updateDirectReport(employee: Employee) {
+    this.updateEmployee.emit(employee);
+  }
+
+  deleteDirectReport(employee: Employee) {
+    this.deleteEmployee.emit(employee);
   }
 }

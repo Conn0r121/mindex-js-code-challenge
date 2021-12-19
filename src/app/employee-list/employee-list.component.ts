@@ -33,6 +33,14 @@ export class EmployeeListComponent implements OnInit {
     this.numCols = (event.target.innerWidth <= 600) ? 1 : 4;
   }
 
+  updateEmployee(employee: Employee): void {
+    console.log(employee.id);
+  }
+
+  deleteEmployee(employee: Employee): void {
+    console.log(employee.lastName);
+  }
+
   private handleError(e: Error | any): string {
     console.error(e);
     return this.errorMessage = e.message || 'Unable to retrieve employees';
