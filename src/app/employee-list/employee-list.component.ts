@@ -34,11 +34,20 @@ export class EmployeeListComponent implements OnInit {
   }
 
   updateEmployee(employee: Employee): void {
-    console.log(employee.id);
+    this.employeeService.save(employee).subscribe(returnedEmployee => {
+      this.employees.map(currentEmployee => currentEmployee.id === returnedEmployee.id ? returnedEmployee : currentEmployee);
+    });
   }
 
   deleteEmployee(employee: Employee): void {
-    console.log(employee.lastName);
+    this.employeeService.remove(employee).subscribe( _ => {
+      this.employeeService.getAll()
+      .pipe(
+        reduce((emps, e: Employee) => emps.concat(e), []),
+        map(emps => this.employees = emps),
+        catchError(this.handleError.bind(this))
+      ).subscribe();
+    });
   }
 
   private handleError(e: Error | any): string {
