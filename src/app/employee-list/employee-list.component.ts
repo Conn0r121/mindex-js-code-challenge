@@ -12,7 +12,6 @@ import {EmployeeService} from '../employee.service';
 export class EmployeeListComponent implements OnInit {
   employees: Employee[] = [];
   errorMessage: string;
-  numCols: number;
 
   constructor(private employeeService: EmployeeService) {
   }
@@ -24,13 +23,6 @@ export class EmployeeListComponent implements OnInit {
         map(emps => this.employees = emps),
         catchError(this.handleError.bind(this))
       ).subscribe();
-
-    this.numCols = (window.innerWidth <= 600) ? 1 : 4;
-    
-  }
-
-  onResize(event): void {
-    this.numCols = (event.target.innerWidth <= 600) ? 1 : 4;
   }
 
   private handleError(e: Error | any): string {
