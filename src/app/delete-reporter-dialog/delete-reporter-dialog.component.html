@@ -1,1 +1,9 @@
-<p>delete-reporter-dialog works!</p>
+<h1 mat-dialog-title>Delete Employee</h1>
+<mat-dialog-content class="mat-typography">
+    <p>Are you sure you would like to delete this employee? </p>
+    <p>This action cannot be undone.</p>
+</mat-dialog-content>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="false">Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial style="background-color: red">Delete</button>
+</div>

@@ -5,6 +5,7 @@ import {EmployeeService} from '../employee.service';
 
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { UpdateReporterDialogComponent } from '../update-reporter-dialog/update-reporter-dialog.component';
+import { DeleteReporterDialogComponent } from '../delete-reporter-dialog/delete-reporter-dialog.component';
 
 @Component({
   selector: 'app-employee',
@@ -57,11 +58,14 @@ export class EmployeeComponent implements OnInit {
       employeeToUpdate.compensation = result.compensation;
 
       this.updateEmployee.emit(employeeToUpdate);
-    })
-    
+    });
   }
 
-  deleteDirectReport(employee: Employee) {
-    this.deleteEmployee.emit(employee);
+  openDeleteDirectReportDialog(employeeToDelete: Employee): void {
+    const dialogRef = this.dialog.open(DeleteReporterDialogComponent);
+
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) { this.deleteEmployee.emit(employeeToDelete); }
+    });
   }
 }
