@@ -1,13 +1,18 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>{{employee.lastName}}, {{employee.firstName}}</mat-card-title>
-    <mat-card-subtitle>{{employee.id}}</mat-card-subtitle>
-    <mat-card-footer>{{reports.length}}</mat-card-footer>
+    <mat-card-title>{{employee.firstName}} {{employee.lastName}}, {{employee.position}}</mat-card-title>
+    <mat-card-subtitle>Employee ID: {{employee.id}} Total Reports: {{reports.length}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <dl>
-      <dt>Job Title</dt>
-      <dd>{{employee.position}}</dd>
-    </dl>
+    <div *ngIf="reports.length">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title id="direct-reports-title">Direct Reports:</mat-card-title>
+        </mat-card-header>
+      <mat-card-content *ngFor="let directReport of reports">
+        <h3>{{directReport.firstName}} {{directReport.lastName}}, {{directReport.position}}</h3>
+      </mat-card-content>
+      </mat-card>
+    </div>
   </mat-card-content>
 </mat-card>
