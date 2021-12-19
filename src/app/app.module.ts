@@ -17,13 +17,15 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {UpdateReporterDialogComponent} from './update-reporter-dialog/update-reporter-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { DeleteReporterDialogComponent } from './delete-reporter-dialog/delete-reporter-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeComponent,
     EmployeeListComponent,
-    UpdateReporterDialogComponent
+    UpdateReporterDialogComponent,
+    DeleteReporterDialogComponent
   ],
   imports: [
     BrowserModule,
