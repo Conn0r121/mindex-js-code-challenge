@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {Employee} from '../employee';
+
+
 
 @Component({
   selector: 'app-update-reporter-dialog',
@@ -7,9 +11,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateReporterDialogComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<UpdateReporterDialogComponent>, @Inject(MAT_DIALOG_DATA) public employee: Employee) { }
 
   ngOnInit(): void {
   }
 
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }
