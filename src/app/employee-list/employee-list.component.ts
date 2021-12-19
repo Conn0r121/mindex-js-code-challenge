@@ -18,36 +18,30 @@ export class EmployeeListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.updateEmployeeList();
+  }
+
+  updateEmployee(employee: Employee): void {
+    this.employeeService.save(employee).subscribe( _ => {
+      this.updateEmployeeList(); // updating employee list to ensure frontend has most recent backend data
+    });
+  }
+
+  deleteEmployee(employee: Employee): void {
+    this.employeeService.remove(employee).subscribe( _ => {
+      this.updateEmployeeList();
+    });
+  }
+
+  // updating employee list in seperate method, as delete and update both use it as well
+
+  private updateEmployeeList(): void {
     this.employeeService.getAll()
       .pipe(
         reduce((emps, e: Employee) => emps.concat(e), []),
         map(emps => this.employees = emps),
         catchError(this.handleError.bind(this))
       ).subscribe();
-
-    this.numCols = (window.innerWidth <= 600) ? 1 : 4;
-    
-  }
-
-  onResize(event): void {
-    this.numCols = (event.target.innerWidth <= 600) ? 1 : 4;
-  }
-
-  updateEmployee(employee: Employee): void {
-    this.employeeService.save(employee).subscribe(returnedEmployee => {
-      this.employees.map(currentEmployee => currentEmployee.id === returnedEmployee.id ? returnedEmployee : currentEmployee);
-    });
-  }
-
-  deleteEmployee(employee: Employee): void {
-    this.employeeService.remove(employee).subscribe( _ => {
-      this.employeeService.getAll()
-      .pipe(
-        reduce((emps, e: Employee) => emps.concat(e), []),
-        map(emps => this.employees = emps),
-        catchError(this.handleError.bind(this))
-      ).subscribe();
-    });
   }
 
   private handleError(e: Error | any): string {
