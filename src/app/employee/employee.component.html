@@ -10,7 +10,13 @@
           <mat-card-title id="direct-reports-title">Direct Reports:</mat-card-title>
         </mat-card-header>
       <mat-card-content *ngFor="let directReport of getDirectReports()">
-        <mat-card>{{directReport.firstName}} {{directReport.lastName}}, {{directReport.position}}</mat-card>
+        <mat-card class="report-card">
+          <span class="report-text">{{directReport.firstName}} {{directReport.lastName}}, {{directReport.position}}</span>
+          <span>
+            <button mat-icon-button><mat-icon>edit</mat-icon></button>
+            <button mat-icon-button><mat-icon>delete</mat-icon></button>
+          </span>
+        </mat-card>
       </mat-card-content>
       </mat-card>
     </div>

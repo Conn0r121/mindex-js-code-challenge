@@ -1,0 +1,15 @@
+.report-spacer {
+    flex: 1 1 auto;
+}
+
+.report-card {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.report-text {
+    display: flex;
+    align-items: center;
+}
