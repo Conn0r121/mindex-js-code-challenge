@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { DeleteReporterDialogComponent } from './delete-reporter-dialog.component';
 
@@ -8,7 +9,11 @@ describe('DeleteReporterDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DeleteReporterDialogComponent ]
+      declarations: [ DeleteReporterDialogComponent ],
+      providers: [
+        { provide: MatDialogRef, useValue: {} },
+        { provide: MAT_DIALOG_DATA, useValue: {}} 
+      ]
     })
     .compileComponents();
   }));

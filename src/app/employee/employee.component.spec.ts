@@ -5,6 +5,7 @@ import {EmployeeComponent} from './employee.component';
 import {MatCardModule} from '@angular/material/card';
 import {EmployeeService} from '../employee.service';
 import {of} from 'rxjs';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({selector: 'app-mat-card', template: ''})
 class CardComponent {
@@ -86,6 +87,7 @@ describe('EmployeeComponent', () => {
       // adding imports to remove npm warnings for not including mat-card during tests
       imports: [
         MatCardModule,
+        MatDialogModule
       ],
       providers: [
         {provide: EmployeeService, useValue: employeeServiceSpy}
